@@ -1,5 +1,5 @@
 from random import randint
-
+#First draft of project - needs cleaned up, refactored
 
 class Dice:
     def __init__(self):
