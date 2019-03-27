@@ -1,5 +1,6 @@
 from random import randint
-
+# Second version of dice roller program after refactoring. Still looking for ways to set 'self.xxxx' variables 
+# to not have to repeat the 'self.' each time. 
 
 class Dice:
     def main(self):
