@@ -1,0 +1,72 @@
+from random import randint
+
+
+class Dice:
+    def main(self):
+        self.start()
+        self.roll()
+
+
+    def start(self):
+        print('''
+            Roll the Dice!
+            [Press Enter to Continue]
+        ''')
+        input()
+
+    def line(self):
+        print()
+        print('*  '*30)
+        print()
+
+    def roll(self):
+        while True:
+            cmd = input('[a]d20 [b]d12 [c]d10 [d]d8 [e]d6 [f]d4 [g]d100  ')
+            if cmd == 'a':
+                kind = dice[0]
+                throw = randint(1, 20)
+                if throw == 1:
+                    print('Natural 1...')
+                    result = 1
+                elif throw == 20:
+                    print('Natural 20!!')
+                    result = 20
+                else:
+                    print('d{}'.format(kind))
+                    result = randint(2, 19)
+            elif cmd == 'b':
+                kind = dice[1]
+            elif cmd == 'c':
+                kind = dice[2]
+            elif cmd == 'd':
+                kind = dice[3]
+            elif cmd == 'e':
+                kind = dice[4]
+            elif cmd == 'f':
+                kind = dice[5]
+            elif cmd == 'g':
+                kind = dice[6]
+            else:
+                print('Invalid option')
+            if kind != dice[0]:
+                print('d{}'.format(kind))
+                result = randint(1, kind)
+            else:
+                pass
+            while True:
+                modifier = input("\nWhat is your modifier?   ")
+                if modifier.isdigit():
+                    mod = int(modifier)
+                    break
+                elif modifier.isalpha():
+                    print('Invalid entry')
+                else:
+                    mod = 0
+                    break
+            print('\nYou rolled a d{} for {} with a {} modifier for a total of {}.'.format(kind, result, mod,
+                                                                                           result + mod))
+            self.line()
+while True:
+    if __name__ == '__main__':
+        dice = [20, 12, 10, 8, 6, 4, 100]
+        Dice().main()
